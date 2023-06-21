@@ -1,4 +1,4 @@
-spicy_cc_link_basic
+spicy_cc_link_field_basic
 =================================
 
 spicy_cc_link_basicとはSpicyで作成したZeekのパーサです。
