@@ -15,7 +15,7 @@ zkg_version = 2.13.0
 features = spicy-protocol-analyzer
 
 [template_vars]
-name = spicy_cc_link_field_basic
+name = zeek-parser-CCLinkFieldBasic
 analyzer = cc_link_basic
 protocol = UDP
 unit_orig = Packet
