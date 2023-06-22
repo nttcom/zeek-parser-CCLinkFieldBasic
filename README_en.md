@@ -76,7 +76,7 @@ This plug-in monitors all functions of CC-Link IE Field Basic and outputs them a
 | id.resp_h | addr | destination IP address  |
 | id.resp_p | port | destination port number   |
 | pdu | string | protocol function name |
-| cmd | string | cyclic or - |
+| cmd | string | `cyclic` or `-` |
 | number | int | number of packet occurrence |
 | ts_end | time | timestamp of the last communication |
 

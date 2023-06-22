@@ -35,7 +35,7 @@ spicyc v1.5.0 (d0bc6053)
 ~$ cd ~/zeek-parser-CCLinkFieldBasic/analyzer/ 
 ```
 
-ソースコードコンパイルして、オブジェクトファイルを以下のパスにコピーします。
+ソースコードをコンパイルして、オブジェクトファイルを以下のパスにコピーします。
 
 ```
 ~$ spicyz -o cc_link_basic.hlto cc_link_basic.spicy cc_link_basic.evt
@@ -71,13 +71,13 @@ spicyc v1.5.0 (d0bc6053)
 | フィールド | タイプ | 説明 |
 | --- | --- | --- |
 | ts | time | 最初に通信した時のタイムスタンプ |
-| uid | string | ユニックID |
+| uid | string | ユニークID |
 | id.orig_h | addr | 送信元IPアドレス |
 | id.orig_p | port | 送信元ポート番号 |
 | id.resp_h | addr | 宛先IPアドレス |
 | id.resp_p | port | 宛先ポート番号 |
 | pdu | string | プロトコルの関数名 |
-| cmd | string | cyclic 或は - |
+| cmd | string | `cyclic` または `-` |
 | number | int | パケット出現回数 |
 | ts_end | time | 最後に通信した時のタイムスタンプ |
 
