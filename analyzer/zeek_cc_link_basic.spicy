@@ -15,6 +15,6 @@ import zeek;
 # }
 
 # Any error bubbling up to the top unit will trigger a protocol rejection.
-on cc_link_basic::Packet::%error {
+on cclink_ie_field_basic::Packet::%error {
     zeek::reject_protocol("error while parsing cc_link_basic");
 }
