@@ -210,31 +210,31 @@ event cclink_ie_field_basic::cyclicDataRes(c: connection, dl: int,
 	# print fmt("Zeek saw from %s %s to %s: dl:%s", c$start_time, c$id$orig_h, c$id$resp_h, dl);
 	}
 
-# # 集約 local debug用
-# event zeek_done()
-# 	{
-# 	# print "zeek_done()";
-# 	print res_aggregationData;
-# 	for ( i in res_aggregationData ){
-# 		# print i;
-# 		local info: Info = [];
-# 		info$ts = res_aggregationData[i]$ts_s;
-# 		info$uid = i$uid;
-# 		info$id = i$id;
-# 		info$pdu = i$pdu;
-# 		if ( i?$cmd ){
-# 			info$cmd = i$cmd;
-# 		}
-# 		if ( res_aggregationData[i]?$ts_e ){
-# 			info$ts_end = res_aggregationData[i]$ts_e;
-# 		}
-# 		if ( res_aggregationData[i]?$num ){
-# 			info$number = res_aggregationData[i]$num;
-# 		}
-# 		# print res_aggregationData;
-# 		# print info;
-# 		Log::write(cclink_ie_field_basic::LOG, info);
-# 	}
-# 	# res_aggregationData = {};
-# 	# print res_aggregationData;
-# 	}
+# 集約 local debug用
+event zeek_done()
+	{
+	# print "zeek_done()";
+	print res_aggregationData;
+	for ( i in res_aggregationData ){
+		# print i;
+		local info: Info = [];
+		info$ts = res_aggregationData[i]$ts_s;
+		info$uid = i$uid;
+		info$id = i$id;
+		info$pdu = i$pdu;
+		if ( i?$cmd ){
+			info$cmd = i$cmd;
+		}
+		if ( res_aggregationData[i]?$ts_e ){
+			info$ts_end = res_aggregationData[i]$ts_e;
+		}
+		if ( res_aggregationData[i]?$num ){
+			info$number = res_aggregationData[i]$num;
+		}
+		# print res_aggregationData;
+		# print info;
+		Log::write(cclink_ie_field_basic::LOG, info);
+	}
+	# res_aggregationData = {};
+	# print res_aggregationData;
+	}
