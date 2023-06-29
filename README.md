@@ -8,6 +8,23 @@ Zeek-Parser-CCLinkFieldBasicとは[CC-Linkファミリー](https://www.cc-link.o
 
 ## 使い方
 
+### パッケージマネージャ
+
+このスクリプトは[Zeek Package Manger](https://docs.zeek.org/projects/package-manager/en/stable/index.html)用のパッケージとして提供されています。
+
+```
+zkg refresh
+zkg install zeek-parser-CCLinkFieldBasic
+```
+
+上記のコマンドを実行した後、本プラグインは利用可能なプラグインに追加されます。これは `zeek -N` を実行してテストできます。正しくインストールされていれば、`[Analyzer] spicy_cclink_ie_field_basic (ANALYZER_SPICY_CCLINK_IE_FIELD_BASIC, enabled)`が表示されます。
+
+以下の様に本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
+
+```
+zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cc_link_ief.pcap zeek-parser-CCLinkField-CCLinkControl
+```
+
 ### マニュアルインストール
 
 本プラグインを利用する前に、Zeek, Spicyがインストールされていることを確認します。
