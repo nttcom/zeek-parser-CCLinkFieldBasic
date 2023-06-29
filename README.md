@@ -22,7 +22,7 @@ zkg install zeek-parser-CCLinkFieldBasic
 以下の様に本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
 
 ```
-zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cc_link_ief.pcap zeek-parser-CCLinkField-CCLinkControl
+zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cclink_ief_basic_only.pcap zeek-parser-CCLinkField-CCLinkControl
 ```
 
 ### マニュアルインストール
@@ -78,7 +78,7 @@ spicyc v1.5.0 (d0bc6053)
 本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
 
 ```
-~$ zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cc_link_ief.pcap local.zeek
+~$ zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cclink_ief_basic_only.pcap local.zeek
 ```
 
 ## ログのタイプと説明
