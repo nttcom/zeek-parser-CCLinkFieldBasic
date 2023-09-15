@@ -64,7 +64,7 @@ spicyc v1.5.0 (d0bc6053)
 
 ```
 ~$ cd ~/zeek-parser-CCLinkFieldBasic/scripts/
-~$ cp main.zeek /opt/zeek/share/zeek/site/
+~$ cp main.zeek /opt/zeek/share/zeek/site/cc_link_basic.zeek
 ```
 
 最後にZeekプラグインをインポートします。
