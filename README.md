@@ -50,8 +50,7 @@ spicyc v1.5.0 (d0bc6053)
 以下のように本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
 
 ```
-zeek -Cr /usr/local/zeek/var/lib/zkg/clones/package/zeek-parser-CCLinkFieldBasic/testing/
-Traces/cclink_ief_basic_only.pcap zeek-parser-CCLinkFieldBasic
+zeek -Cr /usr/local/zeek/var/lib/zkg/clones/package/zeek-parser-CCLinkFieldBasic/testing/Traces/cclink_ief_basic_only.pcap zeek-parser-CCLinkFieldBasic
 ```
 
 ### マニュアルインストールの場合
