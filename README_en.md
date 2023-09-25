@@ -11,15 +11,14 @@ Zeek-Parser-CCLinkFieldBasic is a Zeek plug-in that can analyze CC-Link IE Field
 This plug-in is provided as a package for [Zeek Package Manger](https://docs.zeek.org/projects/package-manager/en/stable/index.html).
 
 It can be installed by executing the commands below.
-
 ```
 zkg refresh
 zkg install zeek-parser-CCLinkFieldBasic
 ```
+
 ### Manual Installation
 
 Before using this plug-in, please make sure Zeek, Spicy has been installed.
-
 ````
 # Check Zeek
 ~$ zeek -version
@@ -53,6 +52,7 @@ zeek -Cr /usr/local/zeek/var/lib/zkg/clones/package/zeek-parser-CCLinkFieldBasic
 
 ### For manual installation
 
+Compile source code and copy the object files to the following path.
 ```
 ~$ cd ~/zeek-parser-CCLinkFieldBasic/analyzer
 ~$ spicyz -o cc_link_basic.hlto cc_link_basic.spicy cc_link_basic.evt
@@ -67,11 +67,10 @@ Then, copy the zeek file to the following paths.
 ```
 
 Finally, import the Zeek plugin.
-
 ```
 ~$ tail /usr/local/zeek/share/zeek/site/local.zeek
 ... Omit ...
-@load cc_link_noip
+@load cc_link_basic
 ```
 
 This plug-in generates a `cclink-ief-basic.log` by the command below:
