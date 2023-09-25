@@ -6,29 +6,21 @@ English is [here](https://github.com/nttcom/zeek-parser-CCLinkFieldBasic/blob/ma
 
 Zeek-Parser-CCLinkFieldBasicとは[CC-Linkファミリー](https://www.cc-link.org/ja/cclink/index.html)のCC-Link IE Field Basicを解析できるZeekプラグインです。
 
-## 使い方
+## インストール
 
-### パッケージマネージャ
+### パッケージマネージャーによるインストール
 
-このスクリプトは[Zeek Package Manger](https://docs.zeek.org/projects/package-manager/en/stable/index.html)用のパッケージとして提供されています。
+このプラグインは[Zeek Package Manger](https://docs.zeek.org/projects/package-manager/en/stable/index.html)用のパッケージとして提供されています。
 
+以下のコマンドを実行することで、本プラグインは利用可能になります。
 ```
 zkg refresh
 zkg install zeek-parser-CCLinkFieldBasic
 ```
 
-上記のコマンドを実行した後、本プラグインは利用可能なプラグインに追加されます。これは `zeek -N` を実行してテストできます。正しくインストールされていれば、`[Analyzer] spicy_cclink_ie_field_basic (ANALYZER_SPICY_CCLINK_IE_FIELD_BASIC, enabled)`が表示されます。
-
-以下の様に本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
-
-```
-zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cclink_ief_basic_only.pcap zeek-parser-CCLinkField-CCLinkControl
-```
-
 ### マニュアルインストール
 
 本プラグインを利用する前に、Zeek, Spicyがインストールされていることを確認します。
-
 ```
 # Zeekのチェック
 ~$ zeek -version
@@ -42,35 +34,48 @@ spicyc v1.5.0 (d0bc6053)
 
 # 本マニュアルではZeekのパスが以下であることを前提としています。
 ~$ which zeek
-/opt/zeek/bin/zeek
+/usr/local/zeek/bin/zeek
 ```
 
 本リポジトリをローカル環境に `git clone` します。
 
 ```
 ~$ git clone https://github.com/nttcom/zeek-parser-CCLinkFieldBasic.git
-~$ cd ~/zeek-parser-CCLinkFieldBasic/analyzer/ 
 ```
+
+## 使い方
+
+### パッケージマネージャーによるインストールの場合
+
+以下のように本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
+
+```
+zeek -Cr /usr/local/zeek/var/lib/zkg/clones/package/zeek-parser-CCLinkFieldBasic/testing/
+Traces/cclink_ief_basic_only.pcap zeek-parser-CCLinkFieldBasic
+```
+
+### マニュアルインストールの場合
 
 ソースコードをコンパイルして、オブジェクトファイルを以下のパスにコピーします。
 
 ```
+~$ cd ~/zeek-parser-CCLinkFieldBasic/analyzer
 ~$ spicyz -o cc_link_basic.hlto cc_link_basic.spicy cc_link_basic.evt
 ~$ # cc_link_basic.hltoが生成されます
-~$ cp cc_link_basic.hlto /opt/zeek/lib/zeek-spicy/modules/
+~$ cp cc_link_basic.hlto /usr/local/zeek/lib/zeek-spicy/modules/
 ```
 
 同様にZeekファイルを以下のパスにコピーします。
 
 ```
 ~$ cd ~/zeek-parser-CCLinkFieldBasic/scripts/
-~$ cp main.zeek /opt/zeek/share/zeek/site/cc_link_basic.zeek
+~$ cp main.zeek /usr/local/zeek/share/zeek/site/cc_link_basic.zeek
 ```
 
 最後にZeekプラグインをインポートします。
 
 ```
-~$ tail /opt/zeek/share/zeek/site/local.zeek
+~$ tail /usr/local/zeek/share/zeek/site/local.zeek
 ...省略...
 @load cc_link_basic
 ```
@@ -78,7 +83,8 @@ spicyc v1.5.0 (d0bc6053)
 本プラグインを使うことで `cclink-ief-basic.log` が生成されます。
 
 ```
-~$ zeek -Cr zeek-parser-CCLinkFieldBasic/testing/Traces/cclink_ief_basic_only.pcap local.zeek
+~$ cd ~/zeek-parser-CCLinkFieldBasic/testing/Traces
+~$ zeek -Cr cclink_ief_basic_only.pcap /usr/local/zeek/share/zeek/site/cc_link_basic.zeek
 ```
 
 ## ログのタイプと説明
@@ -114,6 +120,6 @@ spicyc v1.5.0 (d0bc6053)
 #close  2023-05-27-00-52-06
 ```
 
-## 関連ソフトウエア
+## 関連ソフトウェア
 
 本プラグインは[OsecT](https://github.com/nttcom/OsecT)で利用されています。
